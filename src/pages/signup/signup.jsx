@@ -1,7 +1,7 @@
 import { Button } from "@shared/ui/kit/button";
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { toast } from "sonner";
 
 const Signup = () => {
@@ -64,7 +64,7 @@ const Signup = () => {
                   duration: 5000,
                 });
               } catch (error) {
-                toast.error("Ошибка при регистрации");
+                toast.error("Registration failed");
               }
             }}
             className="w-full h-[50px] text-[18px] font-semibold"
@@ -73,7 +73,7 @@ const Signup = () => {
           </Button>
 
           <p className="text-center">
-            Already have account{" "}
+            Already have account?{" "}
             <Link className="text-[18px] text-gray-500 pb-[2px] border-b-gray-500 border-b-[1px]" to="/login">
               Log in
             </Link>

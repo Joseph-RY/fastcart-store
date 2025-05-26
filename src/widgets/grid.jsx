@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { Button } from "@shared/ui/kit/button";
 import PS from "@shared/images/grid(1).png";
 import Woman from "@shared/images/grid(2).jpg";

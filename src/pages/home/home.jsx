@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { toast } from "sonner";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Title from "@shared/ui/custom/title";
 import CategorySidebar from "@/widgets/category-sidebar";
 import CategorySwiper from "@/widgets/category-swiper";
-import ProductSwiper from "@shared/ui/custom/product-swiper";
-import Rates from "@shared/ui/custom/stars";
-import Services from "@shared/ui/custom/services";
-import Grid from "@/widgets/grid";
 import HomeSwiper from "@/widgets/home-swiper";
 import Banner from "@/widgets/banner";
+import Grid from "@/widgets/grid";
+import Title from "@shared/ui/custom/title";
+import Rates from "@shared/ui/custom/stars";
 import { Button } from "@shared/ui/kit/button";
-import { getProduct } from "@/features/product/productSlice";
+import Services from "@shared/ui/custom/services";
+import ProductSwiper from "@shared/ui/custom/product-swiper";
 import WishlistButton from "@shared/ui/custom/wishlist-button";
+import { getProduct } from "@/entities/product/productSlice";
 
 const Home = () => {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
@@ -48,6 +49,31 @@ const Home = () => {
   useEffect(() => {
     dispatch(getProduct());
   }, [dispatch]);
+
+  const handleAddToCart = (id) => {
+    const isAuth = Boolean(localStorage.getItem("access_token"));
+    if (!isAuth) {
+      toast.error("", {
+        description: (
+          <span className="text-[16px] text-gray-400">
+            Please{" "}
+            <span className="underline text-red-500 hover:text-red-800 cursor-pointer" onClick={() => navigate("/login")}>
+              log in
+            </span>{" "}
+            to add items to cart.
+          </span>
+        ),
+        duration: 2000,
+      });
+      return;
+    }
+
+    if (id) {
+      dispatch(addProductToCart(id));
+    } else {
+      console.warn("Invalid id for adding to cart:", id);
+    }
+  };
 
   return (
     <div className="space-y-10 px-[0px] md:px-[10%]">
@@ -91,7 +117,7 @@ const Home = () => {
         </div>
         <ProductSwiper slideCount={4} hasDiscount={true} textSide={"!text-start"} />
         <div className="flex justify-center">
-          <Link to="products">
+          <Link to="/products">
             <Button className={"rounded-none py-2 px-3 w-[200px] h-11"}>View All Products</Button>
           </Link>
         </div>
@@ -108,7 +134,7 @@ const Home = () => {
       <section className="space-y-5 px-3 md:px-0">
         <Title label="Our Products" title="Explore Our Products" />
         <div className="flex flex-col md:flex-row items-center justify-between flex-wrap gap-5">
-          {data.slice(0, 8).map((e) => {
+          {data?.slice(0, 8).map((e) => {
             return (
               <div key={e.id} className="!bg-white w-[90%] md:w-[20%] flex flex-col gap-2 md:!items-start">
                 <div className="group bg-[#f5f5f5] w-full h-[250px] p-1 relative rounded-[4px] overflow-hidden">
@@ -155,7 +181,7 @@ const Home = () => {
           })}
         </div>
         <div className="flex justify-center">
-          <Link to="products">
+          <Link to="/products">
             <Button className={"rounded-none py-2 px-3 w-[200px] h-11"}>View All Products</Button>
           </Link>
         </div>

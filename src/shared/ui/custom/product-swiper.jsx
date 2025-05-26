@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getProduct } from "@/features/product/productSlice";
-import { addProductToCart } from "@/features/cart/cartSlice";
 import { toast } from "sonner";
-import WishlistButton from "./wishlist-button";
-import Stars from "@shared/ui/custom/stars";
+import { useDispatch, useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link, Navigate } from "react-router-dom";
+import WishlistButton from "@shared/ui/custom/wishlist-button";
+import { Button } from "@shared/ui/kit/button";
+import Stars from "@shared/ui/custom/stars";
+import { addProductToCart } from "@/entities/cart/cartSlice";
+import { getProduct } from "@/entities/product/productSlice";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { Button } from "../kit/button";
-import { Link } from "react-router-dom";
 import "@/app/styles/swiper-product.css";
 
 const ProductSwiper = ({ slideCount }) => {
@@ -25,7 +25,18 @@ const ProductSwiper = ({ slideCount }) => {
   const handleAddToCart = (id) => {
     const isAuth = Boolean(localStorage.getItem("access_token"));
     if (!isAuth) {
-      toast.error("Please log in to add items to cart.");
+      toast.error("", {
+        description: (
+          <span className="text-[16px] text-gray-400">
+            Please{" "}
+            <span className="underline text-red-500 hover:text-red-800 cursor-pointer" onClick={() => Navigate("/login")}>
+              log in
+            </span>{" "}
+            to add items to cart.
+          </span>
+        ),
+        duration: 2000,
+      });
       return;
     }
 

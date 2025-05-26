@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategory } from "@/features/category/categorySlice";
+import { getCategory } from "@/entities/category/categorySlice";
 
 const CategorySidebar = () => {
   const category = useSelector((state) => state.categories.data);

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { decrementCount, deleteAll, deleteProduct, getCart, incrementCount } from "@/features/cart/cartSlice";
+import { decrementCount, deleteAll, deleteProduct, getCart, incrementCount } from "@/entities/cart/cartSlice";
 import { Button } from "@shared/ui/kit/button";
 import { Link } from "react-router-dom";
 

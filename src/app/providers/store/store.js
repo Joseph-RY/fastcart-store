@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit"
-import categoryReducer from "@/features/category/categorySlice"
-import brandReducer from "@/features/brand/brandSlice"
-import productReducer from "@/features/product/productSlice"
-import cartReducer from "@/features/cart/cartSlice"
-import profileReducer from "@/features/profile/profileSlice"
+import categoryReducer from "@/entities/category/categorySlice"
+import brandReducer from "@/entities/brand/brandSlice"
+import productReducer from "@/entities/product/productSlice"
+import cartReducer from "@/entities/cart/cartSlice"
+import profileReducer from "@/entities/profile/profileSlice"
 
 export const store = configureStore({
     reducer: {

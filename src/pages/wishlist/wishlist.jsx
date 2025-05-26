@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addProductToCart } from "@/features/cart/cartSlice";
-import { addToWishlist } from "@/features/product/productSlice";
+import { addProductToCart } from "@/entities/cart/cartSlice";
+import { addToWishlist } from "@/entities/product/productSlice";
 import { Button } from "@shared/ui/kit/button";
 import Title from "@shared/ui/custom/title";
 import ProductSwiper from "@shared/ui/custom/product-swiper";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToWishlist } from "@/features/product/productSlice";
+import { addToWishlist } from "@/entities/product/productSlice";
 import { toast } from "sonner";
 import { useNavigate } from "react-router";
 

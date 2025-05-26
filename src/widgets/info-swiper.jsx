@@ -10,7 +10,7 @@ import "swiper/css/thumbs";
 import "@/app/styles/swiper-info.css";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getProductById } from "@/features/product/productSlice";
+import { getProductById } from "@/entities/product/productSlice";
 import { useParams } from "react-router";
 
 const InfoSwiper = () => {

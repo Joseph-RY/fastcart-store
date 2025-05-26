@@ -3,7 +3,7 @@ import Roadmap from "@shared/ui/custom/roadmap";
 import TableCart from "@/widgets/table-cart";
 import { useSelector } from "react-redux";
 import { Button } from "@shared/ui/kit/button";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);

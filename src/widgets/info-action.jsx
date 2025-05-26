@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { addProductToCart } from "@/features/cart/cartSlice";
-import { getProductById, addToWishlist } from "@/features/product/productSlice";
+import { addProductToCart } from "@/entities/cart/cartSlice";
+import { getProductById, addToWishlist } from "@/entities/product/productSlice";
 import { Button } from "@shared/ui/kit/button";
 import { toast } from "sonner";
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProfile } from "@/features/profile/profileSlice";
+import { getProfile } from "@/entities/profile/profileSlice";
 import Roadmap from "@shared/ui/custom/roadmap";
 import { Link } from "react-router";
 

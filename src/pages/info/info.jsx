@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductById } from "@/features/product/productSlice";
+import { getProductById } from "@/entities/product/productSlice";
 import Delivery from "@/widgets/delivery";
 import Title from "@shared/ui/custom/title";
 import Stars from "@shared/ui/custom/stars";

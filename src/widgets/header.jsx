@@ -6,8 +6,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@shared/ui/kit/popover"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@shared/ui/kit/sheet";
 
 import logo from "@/shared/images/logo.png";
-import { getCart } from "@/features/cart/cartSlice";
-import { resetWishlist } from "@/features/product/productSlice";
+import { getCart } from "@/entities/cart/cartSlice";
+import { resetWishlist } from "@/entities/product/productSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -26,10 +26,11 @@ const Header = () => {
       toast.error("", {
         description: (
           <span className="text-[16px] text-gray-400">
-            Please sign in to view this page.{" "}
+            Please{" "}
             <Link to="/login" className="underline text-red-500 hover:text-red-800">
               Log In
-            </Link>
+            </Link>{" "}
+            to view this page.
           </span>
         ),
         duration: 5000,
@@ -52,10 +53,11 @@ const Header = () => {
       toast.error("", {
         description: (
           <span className="text-[16px] text-gray-400">
-            Please sign in to view your account, orders, or wishlist.{" "}
+            Please{" "}
             <Link to="/login" className="underline text-red-500 hover:text-red-800">
               Log In
-            </Link>
+            </Link>{" "}
+            view your account.
           </span>
         ),
         duration: 5000,
@@ -101,7 +103,7 @@ const Header = () => {
             </div>
           </SheetContent>
         </Sheet>
-        <h2 className="block md:hidden text-[28px] font-bold">Exclusive</h2>
+        <h2 className="block md:hidden text-[28px] font-bold">Fastcart</h2>
       </div>
       <div className="hidden md:flex items-center gap-[80px]">
         <img src={logo} alt="Logo" />

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategory } from "@/features/category/categorySlice";
+import { getCategory } from "@/entities/category/categorySlice";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 

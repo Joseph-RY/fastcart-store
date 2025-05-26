@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../shared/ui/kit/button";
 import jbl from "@shared/images/jbl.png";
 import flash from "@shared/images/flash.png";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const calculateTimeLeft = (targetDate) => {
   const difference = +targetDate - +new Date();

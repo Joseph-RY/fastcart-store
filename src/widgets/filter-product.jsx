@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@shared/ui/kit/accordion";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategory } from "@/features/category/categorySlice";
-import { getBrand } from "@/features/brand/brandSlice";
-import { getProduct } from "@/features/product/productSlice";
+import { getCategory } from "@/entities/category/categorySlice";
+import { getBrand } from "@/entities/brand/brandSlice";
+import { getProduct } from "@/entities/product/productSlice";
 
 const FilterProduct = () => {
   const category = useSelector((state) => state.categories.data);

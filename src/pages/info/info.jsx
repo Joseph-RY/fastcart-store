@@ -2,14 +2,13 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductById } from "@/features/product/productSlice";
-
-import Roadmap from "@shared/ui/custom/Roadmap";
-import ProductSwiper from "@shared/ui/custom/product-swiper";
-import Rates from "@shared/ui/custom/rates";
-import ActionInfo from "@shared/ui/custom/action-info";
-import InfoSwiper from "@/widgets/info-swiper";
 import Delivery from "@/widgets/delivery";
 import Title from "@shared/ui/custom/title";
+import Rates from "@shared/ui/custom/rates";
+import InfoSwiper from "@/widgets/info-swiper";
+import Roadmap from "@/shared/ui/custom/roadmap";
+import ActionInfo from "@shared/ui/custom/action-info";
+import ProductSwiper from "@shared/ui/custom/product-swiper";
 
 const Info = () => {
   const dispatch = useDispatch();

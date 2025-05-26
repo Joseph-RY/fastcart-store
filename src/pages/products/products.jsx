@@ -88,7 +88,7 @@ const Products = () => {
                       </div>
                     </div>
                     <img className="w-full h-full object-cover rounded-[4px]" src={`https://store-api.softclub.tj/images/${e.image}`} alt={e.productName} />
-                    <Button onClick={() => handleAddToCart(e.id)} className="hidden group-hover:block absolute bottom-0 left-0 w-full z-10 bg-black hover:bg-[#000] text-white rounded-tl-none rounded-tr-none rounded-bl-[4px] rounded-br-[4px] transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
+                    <Button onClick={() => handleAddToCart(e.id)} className="hidden group-hover:block absolute bottom-0 left-0 w-full z-10 bg-black text-white rounded-tl-none rounded-tr-none rounded-bl-[4px] rounded-br-[4px] transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
                       Add to Cart
                     </Button>
                   </div>

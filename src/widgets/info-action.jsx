@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
+import { addProductToCart } from "@/features/cart/cartSlice";
 import { getProductById, addToWishlist } from "@/features/product/productSlice";
 import { Button } from "@shared/ui/kit/button";
-import { addProductToCart } from "@/features/cart/cartSlice";
 import { toast } from "sonner";
 
-const ActionInfo = () => {
+const InfoAction = () => {
   const product = useSelector((state) => state.products.product);
   const wishlistData = useSelector((state) => state.products.wishlist);
   const dispatch = useDispatch();
@@ -62,4 +62,4 @@ const ActionInfo = () => {
   );
 };
 
-export default ActionInfo;
+export default InfoAction;

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Rates = () => {
+const Stars = () => {
   return (
     <div className="flex gap-1">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFAD33" className="size-6">
@@ -22,4 +22,4 @@ const Rates = () => {
   );
 };
 
-export default Rates;
+export default Stars;

@@ -1,6 +1,6 @@
 import React from "react";
 import Roadmap from "@shared/ui/custom/roadmap";
-import Table from "@/widgets/table";
+import TableCart from "@/widgets/table-cart";
 import { useSelector } from "react-redux";
 import { Button } from "@shared/ui/kit/button";
 import { Link } from "react-router";
@@ -11,7 +11,7 @@ const Cart = () => {
   return (
     <div className="px-[3%] md:px-[10%] space-y-15 py-10">
       <Roadmap road="Home" page="Cart" />
-      <Table />
+      <TableCart />
       <div className="flex justify-end">
         <div className="w-full max-w-md flex flex-col gap-5 p-6 rounded-2xl border-2 border-black shadow-lg bg-white">
           <h4 className="text-2xl font-bold text-center">Cart Summary</h4>

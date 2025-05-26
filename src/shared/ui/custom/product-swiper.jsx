@@ -4,7 +4,7 @@ import { getProduct } from "@/features/product/productSlice";
 import { addProductToCart } from "@/features/cart/cartSlice";
 import { toast } from "sonner";
 import WishlistButton from "./wishlist-button";
-import Rates from "@shared/ui/custom/rates";
+import Stars from "@shared/ui/custom/stars";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -88,7 +88,7 @@ const ProductSwiper = ({ slideCount }) => {
                 <p className="text-[#DB4444] text-base md:text-lg font-bold">${e.discountPrice}</p>
                 <p className="line-through text-gray-500 text-sm">${e.price}</p>
               </div>
-              <Rates />
+              <Stars />
             </div>
           </SwiperSlide>
         ))}

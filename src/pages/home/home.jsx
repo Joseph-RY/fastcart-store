@@ -3,13 +3,13 @@ import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import Title from "@shared/ui/custom/title";
 import CategorySidebar from "@/widgets/category-sidebar";
-import CategorySwiper from "@shared/ui/custom/category-swiper";
+import CategorySwiper from "@/widgets/category-swiper";
 import ProductSwiper from "@shared/ui/custom/product-swiper";
-import Rates from "@shared/ui/custom/rates";
+import Rates from "@shared/ui/custom/stars";
 import Services from "@shared/ui/custom/services";
-import HomeGrid from "@shared/ui/custom/home-grid";
+import Grid from "@/widgets/grid";
 import HomeSwiper from "@/widgets/home-swiper";
-import Banner from "@shared/ui/custom/banner";
+import Banner from "@/widgets/banner";
 import { Button } from "@shared/ui/kit/button";
 import { getProduct } from "@/features/product/productSlice";
 import WishlistButton from "@shared/ui/custom/wishlist-button";
@@ -162,7 +162,7 @@ const Home = () => {
       </section>
       <section className="space-y-5 px-3 md:px-0">
         <Title label="Featured" title="New Arrival" />
-        <HomeGrid />
+        <Grid />
         <div className="flex flex-col md:flex-row gap-5 items-center justify-between py-[10%]">
           <Services
             icon={

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Roadmap from "@shared/ui/custom/roadmap";
-import FilterSidebar from "@/widgets/filter-sidebar";
-import Rates from "@shared/ui/custom/rates";
+import FilterProduct from "@/widgets/filter-product";
+import Rates from "@shared/ui/custom/stars";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWishlist, getProduct } from "@/features/product/productSlice";
@@ -57,7 +57,7 @@ const Products = () => {
       <Roadmap road="Home" page="Explore Our Products" />
       <div className="flex flex-col justify-between md:flex-row gap-[30px] items-start">
         <div className="w-full md:w-[20%]">
-          <FilterSidebar />
+          <FilterProduct />
         </div>
         <div className="w-full md:w-[70%] flex flex-col gap-3">
           <div className="flex flex-wrap gap-5 ">

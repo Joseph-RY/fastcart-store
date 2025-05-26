@@ -4,7 +4,7 @@ import { decrementCount, deleteAll, deleteProduct, getCart, incrementCount } fro
 import { Button } from "@shared/ui/kit/button";
 import { Link } from "react-router-dom";
 
-const Table = () => {
+const TableCart = () => {
   const products = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
 
@@ -113,4 +113,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default TableCart;

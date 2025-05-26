@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProductById } from "@/features/product/productSlice";
 import Delivery from "@/widgets/delivery";
 import Title from "@shared/ui/custom/title";
-import Rates from "@shared/ui/custom/rates";
+import Stars from "@shared/ui/custom/stars";
 import InfoSwiper from "@/widgets/info-swiper";
 import Roadmap from "@/shared/ui/custom/roadmap";
-import ActionInfo from "@shared/ui/custom/action-info";
+import InfoAction from "@/widgets/info-action";
 import ProductSwiper from "@shared/ui/custom/product-swiper";
 
 const Info = () => {
@@ -31,7 +31,7 @@ const Info = () => {
             <h2 className="text-4xl font-semibold">{product.productName}</h2>
             <div className="flex gap-4">
               <div className="flex items-center gap-2">
-                <Rates />
+                <Stars />
                 <p className="text-[18px] text-[#BFBFBF] ">(150 Reviews)</p>
               </div>
               <div className="pl-4 border-l-[2px] border-[#BFBFBF]">
@@ -88,7 +88,7 @@ const Info = () => {
               <p className="text-[20px]">{product.size}</p>
             </div>
           </div>
-          <ActionInfo />
+          <InfoAction />
           <Delivery />
         </div>
       </div>

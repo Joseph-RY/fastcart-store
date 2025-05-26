@@ -5,7 +5,7 @@ import { getCategory } from "@/features/category/categorySlice";
 import { getBrand } from "@/features/brand/brandSlice";
 import { getProduct } from "@/features/product/productSlice";
 
-const FilterSidebar = () => {
+const FilterProduct = () => {
   const category = useSelector((state) => state.categories.data);
   const brand = useSelector((state) => state.brands.data);
   const dispatch = useDispatch();
@@ -234,4 +234,4 @@ const FilterSidebar = () => {
   );
 };
 
-export default FilterSidebar;
+export default FilterProduct;

@@ -26,7 +26,7 @@ const Wishlist = () => {
   return (
     <div className="px-[3%] md:px-[10%] space-y-10 py-10">
       <h5 className="text-[22px]">Wishlist ({wishes.length})</h5>
-      <div className="flex flex-col md:flex-row md:flex-wrap">
+      <div className="flex flex-col md:flex-row items-center md:flex-wrap">
         {wishes.map((e) => (
           <div key={e.id} className="w-full md:w-[25%] flex flex-col gap-3 md:items-start">
             <div className="group bg-[#f5f5f5] w-[90%] h-[250px] p-1 relative rounded-[4px]">

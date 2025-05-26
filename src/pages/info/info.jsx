@@ -22,11 +22,11 @@ const Info = () => {
   return (
     <div className="px-[3%] md:px-[10%] space-y-15 py-10">
       <Roadmap road="Account / Product" page={`${product.productName}`} />
-      <div className="flex gap-3 justify-between">
-        <div className="w-[60%] h-[650px]">
+      <div className="flex flex-col md:flex-row gap-3 justify-between">
+        <div className="w-full md:w-[60%] h-[650px]">
           <InfoSwiper />
         </div>
-        <div className="w-[35%] flex flex-col gap-7">
+        <div className="w-full md:w-[35%] flex flex-col gap-7">
           <div className="space-y-4">
             <h2 className="text-4xl font-semibold">{product.productName}</h2>
             <div className="flex gap-4">

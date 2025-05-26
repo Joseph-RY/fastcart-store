@@ -25,7 +25,7 @@ const InfoSwiper = () => {
   }, [id, dispatch]);
 
   return (
-    <div className="flex max-h-[600px] h-[600px] justify-between gap-4">
+    <div className="flex flex-col-reverse md:flex-row items-center max-h-[600px] h-[600px] justify-between gap-4">
       <div className="w-[15%] h-[50vh] flex flex-col">
         <Swiper onSwiper={setThumbsSwiper} direction="vertical" spaceBetween={10} slidesPerView={4} freeMode={true} watchSlidesProgress={true} modules={[FreeMode, Navigation, Thumbs]} className="flex-1 hidden md:block">
           {images.map((e) => (

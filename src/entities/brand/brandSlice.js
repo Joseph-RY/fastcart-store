@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const brandURL = "https://store-api.softclub.tj/Brand";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export const getBrand = createAsyncThunk("brands/getBrand", async () => {
-    const response = await axios.get(`${brandURL}/get-brands`);
+    const response = await axios.get(`${apiUrl}/Brand/get-brands`);
     return response.data.data;
 });
 

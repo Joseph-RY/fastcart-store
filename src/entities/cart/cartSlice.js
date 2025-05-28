@@ -2,9 +2,11 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "sonner";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 export const getCart = createAsyncThunk("cart/getCart", async () => {
     const token = localStorage.getItem("access_token");
-    const { data } = await axios.get("https://store-api.softclub.tj/Cart/get-products-from-cart", {
+    const { data } = await axios.get(`${apiUrl}/Cart/get-products-from-cart`, {
         headers: { "Authorization": `Bearer ${token}` },
     });
     return data.data[0];
@@ -13,12 +15,9 @@ export const getCart = createAsyncThunk("cart/getCart", async () => {
 export const addProductToCart = createAsyncThunk("cart/addProductToCart", async (id, { dispatch }) => {
     const token = localStorage.getItem("access_token");
     try {
-        const { data } = await axios.post(
-            `https://store-api.softclub.tj/Cart/add-product-to-cart?id=${id}`,
-            {},
-            {
-                headers: { "Authorization": `Bearer ${token}` },
-            }
+        const { data } = await axios.post(`${apiUrl}/Cart/add-product-to-cart?id=${id}`, {}, {
+            headers: { "Authorization": `Bearer ${token}` },
+        }
         );
         dispatch(getCart())
         toast.success("Product added to cart");
@@ -30,7 +29,7 @@ export const addProductToCart = createAsyncThunk("cart/addProductToCart", async 
 
 export const deleteProduct = createAsyncThunk("cart/deleteProduct", async (id, { dispatch }) => {
     const token = localStorage.getItem("access_token");
-    const { data } = await axios.delete(`https://store-api.softclub.tj/Cart/delete-product-from-cart?id=${id}`,
+    const { data } = await axios.delete(`${apiUrl}/Cart/delete-product-from-cart?id = ${id}`,
         {
             headers: { "Authorization": `Bearer ${token}` }
         }
@@ -42,7 +41,7 @@ export const deleteProduct = createAsyncThunk("cart/deleteProduct", async (id, {
 
 export const deleteAll = createAsyncThunk("cart/deleteAll", async (_, { dispatch }) => {
     const token = localStorage.getItem("access_token");
-    const { data } = await axios.delete(`https://store-api.softclub.tj/Cart/clear-cart`,
+    const { data } = await axios.delete(`${apiUrl}/Cart/clear-cart`,
         {
             headers: { "Authorization": `Bearer ${token}` }
         }
@@ -53,7 +52,7 @@ export const deleteAll = createAsyncThunk("cart/deleteAll", async (_, { dispatch
 
 export const incrementCount = createAsyncThunk("cart/incrementCount", async (id, { dispatch }) => {
     const token = localStorage.getItem("access_token");
-    const { data } = await axios.put(`https://store-api.softclub.tj/Cart/increase-product-in-cart?id=${id}`,
+    const { data } = await axios.put(`${apiUrl}/Cart/increase-product-in-cart?id=${id}`,
         {},
         {
             headers: { "Authorization": `Bearer ${token}` }
@@ -67,7 +66,7 @@ export const incrementCount = createAsyncThunk("cart/incrementCount", async (id,
 
 export const decrementCount = createAsyncThunk("cart/decrementCount", async (id, { dispatch }) => {
     const token = localStorage.getItem("access_token");
-    const { data } = await axios.put(`https://store-api.softclub.tj/Cart/reduce-product-in-cart?id=${id}`,
+    const { data } = await axios.put(`${apiUrl}/Cart/reduce-product-in-cart?id=${id}`,
         {},
         {
             headers: { "Authorization": `Bearer ${token}` }
@@ -78,8 +77,6 @@ export const decrementCount = createAsyncThunk("cart/decrementCount", async (id,
     return data.data[0].productsInCart
 
 })
-
-
 
 const cartSlice = createSlice({
     name: "cart",

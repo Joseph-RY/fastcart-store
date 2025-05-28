@@ -1,8 +1,8 @@
 import { Button } from "@shared/ui/kit/button";
-import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { toast } from "sonner";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { registerUser } from "@/entities/auth/authSlice";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -10,8 +10,10 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  async function register() {
+  const handleRegister = async () => {
     let newAccount = {
       userName: name,
       phoneNumber: phone,
@@ -20,19 +22,12 @@ const Signup = () => {
       confirmPassword: confirm,
     };
 
-    try {
-      let { data } = await axios.post("https://store-api.softclub.tj/Account/register", newAccount);
-      console.log(data.data);
-    } catch (error) {
-      console.log(error);
-    }
-    setName("");
-    setPhone("");
-    setEmail("");
-    setPassword("");
-    setConfirm("");
-  }
+    const result = await dispatch(registerUser(newAccount));
 
+    if (registerUser.fulfilled.match(result)) {
+      navigate("/login");
+    }
+  };
   return (
     <div className="my-[15px] py-[15px] w-[90%] md:w-[35%] flex flex-col gap-12 mx-auto">
       <div>
@@ -45,30 +40,10 @@ const Signup = () => {
           <input value={phone} onChange={(e) => setPhone(e.target.value)} className="py-3 px-2 border-[1px] border-gray-400 text-[18px] placeholder:text-[16px]" type="text" placeholder="Phone number" />
           <input value={email} onChange={(e) => setEmail(e.target.value)} className="py-3 px-2 border-[1px] border-gray-400 text-[18px] placeholder:text-[16px]" type="text" placeholder="Email" />
           <input value={password} onChange={(e) => setPassword(e.target.value)} className="py-3 px-2 border-[1px] border-gray-400 text-[18px] placeholder:text-[16px]" type="text" placeholder="Password" />
-          <input value={confirm} onChange={(e) => setConfirm(e.target.value)} className="py-3 px-2 border-[1px] border-gray-400 text-[18px] placeholder:text-[16px]" type="text" placeholder="Cofirm Password" />
+          <input value={confirm} onChange={(e) => setConfirm(e.target.value)} className="py-3 px-2 border-[1px] border-gray-400 text-[18px] placeholder:text-[16px]" type="text" placeholder="Confirm Password" />
         </div>
         <div className="space-y-3">
-          <Button
-            onClick={() => {
-              try {
-                register();
-                toast.success("", {
-                  description: (
-                    <span className="text-[18px] text-gray-600">
-                      Registered successfully.{" "}
-                      <Link to="/login" className="underline text-red-500 hover:text-red-800">
-                        Log In
-                      </Link>
-                    </span>
-                  ),
-                  duration: 5000,
-                });
-              } catch (error) {
-                toast.error("Registration failed");
-              }
-            }}
-            className="w-full h-[50px] text-[18px] font-semibold"
-          >
+          <Button onClick={handleRegister} className="w-full h-[50px] text-[18px] font-semibold">
             Create Account
           </Button>
 

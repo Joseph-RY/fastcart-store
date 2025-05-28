@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import CategorySidebar from "@/widgets/category-sidebar";
 import CategorySwiper from "@/widgets/category-swiper";
@@ -18,7 +18,7 @@ import { getProduct } from "@/entities/product/productSlice";
 const Home = () => {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
   const data = useSelector((state) => state.products.data);
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   function getTimeLeft() {

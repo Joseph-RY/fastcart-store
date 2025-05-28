@@ -2,12 +2,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 export const getProfile = createAsyncThunk("profile/getProfile", async () => {
     const token = localStorage.getItem("access_token");
     let id = jwtDecode(token);
     try {
         let { data } = await axios.get(
-            `https://store-api.softclub.tj/UserProfile/get-user-profile-by-id?id=${id.sid}`,
+            `${apiUrl}/UserProfile/get-user-profile-by-id?id=${id.sid}`,
             {
                 headers: { "Authorization": `Bearer ${token}` },
             }

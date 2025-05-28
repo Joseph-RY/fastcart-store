@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios"
 import { toast } from "sonner";
 
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export const getProduct = createAsyncThunk("getProduct/data", async (e = {}) => {
     const query = new URLSearchParams();
@@ -13,7 +14,7 @@ export const getProduct = createAsyncThunk("getProduct/data", async (e = {}) => 
     if (e.ProductName) query.append("ProductName", e.ProductName);
 
     const response = await axios.get(
-        `https://store-api.softclub.tj/Product/get-products?${query.toString()}`
+        `${apiUrl}/Product/get-products?${query.toString()}`
     );
     return response.data.data.products;
 }
@@ -21,7 +22,7 @@ export const getProduct = createAsyncThunk("getProduct/data", async (e = {}) => 
 
 export const getProductById = createAsyncThunk("getProductById/data", async (id) => {
     try {
-        const response = await axios.get(`https://store-api.softclub.tj/Product/get-product-by-id?id=${id}`)
+        const response = await axios.get(`${apiUrl}/Product/get-product-by-id?id=${id}`)
         return response.data.data
     } catch (error) {
         console.log(error);

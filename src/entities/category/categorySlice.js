@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios"
 
-const categoryURL = "https://store-api.softclub.tj/Category"
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export const getCategory = createAsyncThunk("getCategory/data", async () => {
-    const response = await axios.get(`${categoryURL}/get-categories`)
+    const response = await axios.get(`${apiUrl}/Category/get-categories`)
     return response.data.data
 })
 

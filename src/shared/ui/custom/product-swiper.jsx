@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import WishlistButton from "@shared/ui/custom/wishlist-button";
 import { Button } from "@shared/ui/kit/button";
 import Stars from "@shared/ui/custom/stars";
@@ -17,6 +17,7 @@ import "@/app/styles/swiper-product.css";
 const ProductSwiper = ({ slideCount }) => {
   const data = useSelector((state) => state.products.data);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getProduct());
@@ -29,7 +30,7 @@ const ProductSwiper = ({ slideCount }) => {
         description: (
           <span className="text-[16px] text-gray-400">
             Please{" "}
-            <span className="underline text-red-500 hover:text-red-800 cursor-pointer" onClick={() => Navigate("/login")}>
+            <span className="underline text-red-500 hover:text-red-800 cursor-pointer" onClick={() => navigate("/login")}>
               log in
             </span>{" "}
             to add items to cart.

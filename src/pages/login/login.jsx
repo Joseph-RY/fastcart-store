@@ -1,39 +1,28 @@
-import { Button } from "@shared/ui/kit/button";
-import axios from "axios";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { Button } from "@shared/ui/kit/button";
+import { loginUser } from "@/entities/auth/authSlice";
 import { toast } from "sonner";
 
-const Signup = () => {
+const Login = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  async function login() {
-    const dataUser = {
-      userName: name,
-      password: password,
-    };
-
-    try {
-      const { data } = await axios.post("https://store-api.softclub.tj/Account/login", dataUser);
-      localStorage.setItem("access_token", `${data.data}`);
-      toast.success("", {
-        description: (
-          <span className="text-[18px] text-gray-600">
-            Logged in successfully.{" "}
-            <Link to="/" className="underline text-red-500 hover:text-red-800">
-              Go to Home
-            </Link>
-          </span>
-        ),
-        duration: 5000,
-      });
-    } catch (error) {
-      console.log(error);
-      toast.error("Login failed");
-    }
-  }
+  const handleLogin = () => {
+    dispatch(loginUser({ userName: name, password }));
+    toast.success(
+      <span className="text-[16px]">
+        Logged in successfully.{" "}
+        <Link to="/" className="underline text-[#DB4444]">
+          Go to Home
+        </Link>
+      </span>
+    );
+    setName("");
+    setPassword("");
+  };
 
   return (
     <div className="my-[15px] py-[15px] w-[90%] md:w-[35%] flex flex-col gap-12 mx-auto">
@@ -53,7 +42,7 @@ const Signup = () => {
               Sign Up
             </Link>
           </p>
-          <Button onClick={login} className="w-full h-[50px] text-[18px] font-semibold">
+          <Button onClick={handleLogin} className="w-full h-[50px] text-[18px] font-semibold">
             Log in
           </Button>
         </div>
@@ -62,4 +51,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

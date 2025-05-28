@@ -1,71 +1,70 @@
 # 🛒 FastCart
 
-Интернет-магазин, созданный на современном стеке: **React**, **Vite**, **Redux Toolkit** и **Shadcn/UI**.
+FastCart is an online store built with modern tools: **React**, **Vite**, **Redux Toolkit**, and **Shadcn/UI**.
 
-## 🚀 Стек технологий
+## 🚀 Technology stack
 
-- ⚛️ **React** — библиотека для построения пользовательских интерфейсов.
-- ⚡ **Vite** — быстрый сборщик и dev-сервер.
-- 🧠 **Redux Toolkit** — упрощённое управление глобальным состоянием.
-- 🎨 **Shadcn/UI** — современная коллекция компонентов на базе Radix UI и Tailwind CSS.
+- ⚛️ **React** — a library for building user interfaces.
+- ⚡ **Vite** — a fast bundler and dev server.
+- 🧠 **Redux Toolkit** — easy global state management.
+- 🎨 **Shadcn/UI** — a modern UI components collection based on Radix UI and Tailwind CSS.
 
-## 🔗 Демонстрация
+## 🔗 Demo
 
 [https://fastcart-store.vercel.app/](https://fastcart-store.vercel.app/)
 
-
-## 📦 Установка и запуск
+## 📦 Installation and start
 
 ```bash
-# 1. Клонируйте репозиторий
+# 1. Clone the repo
 git clone https://github.com/your-username/fastcart-react-redux-shadcn.git
 cd fastcart-react-redux-shadcn
 
-# 2. Установите зависимости
+# 2. Install dependencies
 npm install
 
-# 3. Запустите проект
+# 3. Run the project
 npm run dev
 ```
 
-## 📁 Структура проекта
+## 📁 Project structure
 
 ```
 src/
-├── app/            # Redux store и глобальные настройки
-├── pages/          # Страницы приложения (по FSD)
-├── widgets/        # Компоненты страниц
-├── features/       # Фичи (по FSD)
-├── shared/         # Переиспользуемые компоненты, UI, утилиты
-└── entities/       # Сущности (продукты, пользователи и т.д.)
+├── app/            # Redux store and global settings
+├── pages/          # App pages (FSD style)
+├── widgets/        # Page components
+├── features/       # Features (FSD style)
+├── shared/         # Reusable components, UI, utilities
+└── entities/       # Entities (products, users, etc.)
 ```
 
-## 🧩 Компоненты Shadcn
+## 🧩 Shadcn components
 
-Компоненты UI добавляются через CLI:
+Add UI components via CLI:
 
 ```bash
 npx shadcn-ui@latest add button
 ```
 
-Подробнее см. [https://ui.shadcn.com](https://ui.shadcn.com)
+More info at [https://ui.shadcn.com](https://ui.shadcn.com)
 
-## 🛠 Команды
+## 🛠 Scripts
 
-| Скрипт            | Назначение                    |
-|-------------------|-------------------------------|
-| `npm run dev`     | Запуск в режиме разработки    |
-| `npm run build`   | Сборка проекта                |
-| `npm run preview` | Предпросмотр production-сборки |
+| Script            | Purpose                      |
+|-------------------|------------------------------|
+| `npm run dev`     | Start in development mode     |
+| `npm run build`   | Build the project             |
+| `npm run preview` | Preview the production build  |
 
 ## 📌 TODO
 
-- [ ] Аутентификация
-- [ ] Каталог товаров
-- [ ] Фильтрация и поиск
-- [ ] Корзина
-- [ ] Оформление заказа
+- [ ] Authentication
+- [ ] Product catalog
+- [ ] Filtering and search
+- [ ] Cart
+- [ ] Checkout
 
 ---
 
-© 2025 FastCart. Сделано с ❤️ на React + Vite.
+© 2025 FastCart. Made with ❤️ using React + Vite.

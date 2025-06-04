@@ -20,7 +20,7 @@ const Checkout = () => {
     <div className="px-[3%] md:px-[10%] space-y-15 py-10">
       <Roadmap road="Product / View Cart" page="CheckOut" />
       <div className="flex flex-col md:flex-row justify-between">
-        <div className="w-[40%] space-y-3 p-5 rounded-xl shadow-2xl">
+        <div className="md:w-[40%] space-y-3 p-5 rounded-xl shadow-2xl">
           <h2 className="text-3xl">Billing Details</h2>
           <div className="flex flex-col gap-5 ">
             <input className="p-3 border-[1px] border-[#BFBFBF] rounded-[8px]" type="text" placeholder="First name" />
@@ -42,7 +42,7 @@ const Checkout = () => {
             </label>
           </div>
         </div>
-        <div className="w-[50%] p-4 rounded-lg space-y-4">
+        <div className="md:w-[50%] p-4 rounded-lg space-y-4">
           <div className="space-y-2 border-b pb-4">
             {product.map((e) => (
               <div key={e.product.id} className="flex items-center justify-between gap-4">

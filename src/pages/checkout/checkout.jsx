@@ -19,7 +19,7 @@ const Checkout = () => {
   return (
     <div className="px-[3%] md:px-[10%] space-y-15 py-10">
       <Roadmap road="Product / View Cart" page="CheckOut" />
-      <div className="flex flex-col md:flex-row justify-between">
+      <div className="flex flex-col md:flex-row gap-5 md:gap-0 justify-between">
         <div className="md:w-[40%] space-y-3 p-5 rounded-xl shadow-2xl">
           <h2 className="text-3xl">Billing Details</h2>
           <div className="flex flex-col gap-5 ">
@@ -84,7 +84,7 @@ const Checkout = () => {
               <label htmlFor="cod">Cash on delivery</label>
             </div>
           </div>
-          <div className="flex gap-2 w-[80%] p-5 rounded-[8px] shadow-xl ">
+          <div className="flex gap-2 md:w-[80%] p-5 rounded-[8px] shadow-xl ">
             <input type="text" placeholder="Coupon Code" className="flex-1 border px-2 py-1 rounded-md" />
             <button className="px-4 py-1 bg-[#DB4444] text-white rounded-md">Apply</button>
           </div>
